@@ -8,6 +8,9 @@ import Courses from "./pages/student/Courses";
 import MyLearning from "./pages/student/Mylearning";
 import Profile from "./pages/student/Profile";
 import Sidebar from "./pages/admin/Sidebar";
+import Dashboard from "./pages/admin/Dashboard";
+import CourseTable from "./pages/admin/course/CourseTable";
+// import AddCourse from "./pages/admin/course/AddCourse";
 
 const appRouter = createBrowserRouter([
   {
@@ -43,7 +46,24 @@ const appRouter = createBrowserRouter([
       // admin routes added to the routes
       {
         path: "admin",
-        element:<Sidebar/>,
+        element: <Sidebar />,
+        children: [
+         
+          // Add more admin routes as needed
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "course",
+            element: <CourseTable />,
+          },
+//           {
+//             path: "course/create",
+//             element:<AddCourse/>
+// }
+          
+        ],
       }
 
     ],
